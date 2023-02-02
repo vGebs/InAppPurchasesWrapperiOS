@@ -1,19 +1,19 @@
 import Foundation
 import StoreKit
 
+public struct InAppPurchasesCallbacks {
+    var onFetchCompleted: (([SKProduct]) -> Void)?
+    var onProductsNotFound: (([String]?) -> Void)?
+    var onPurchaseSucceeded: ((SKProduct) -> Void)?
+    var onPurchaseFailed: ((SKProduct, Error?) -> Void)?
+    var onRestoreCompleted: (([SKPaymentTransaction]) -> Void)?
+    var onRestoreFailed: ((Error?) -> Void)?
+}
+
 public class InAppPurchaseWrapper: NSObject, SKProductsRequestDelegate, SKPaymentTransactionObserver {
     private var products = [SKProduct]()
     private var callbacks: InAppPurchasesCallbacks
     private var productIdentifiers: Set<String>
-    
-    public struct InAppPurchasesCallbacks {
-        var onFetchCompleted: (([SKProduct]) -> Void)?
-        var onProductsNotFound: (([String]?) -> Void)?
-        var onPurchaseSucceeded: ((SKProduct) -> Void)?
-        var onPurchaseFailed: ((SKProduct, Error?) -> Void)?
-        var onRestoreCompleted: (([SKPaymentTransaction]) -> Void)?
-        var onRestoreFailed: ((Error?) -> Void)?
-    }
     
     public init(productIdentifiers: Set<String>, callbacks: InAppPurchasesCallbacks) {
         self.productIdentifiers = productIdentifiers
