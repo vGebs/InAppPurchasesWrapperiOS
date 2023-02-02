@@ -21,8 +21,8 @@ let package = Package(
         .target(
             name: "InAppPurchaseiOS",
             dependencies: []),
-//        .testTarget(
-//            name: "InAppPurchaseiOSTests",
-//            dependencies: ["InAppPurchaseiOS"]),
+        .testTarget(
+            name: "InAppPurchaseiOSTests",
+            dependencies: ["InAppPurchaseiOS"]),
     ]
 )
