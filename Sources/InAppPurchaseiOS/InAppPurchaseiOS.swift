@@ -8,6 +8,15 @@ public struct InAppPurchasesCallbacks {
     var onPurchaseFailed: ((SKProduct, Error?) -> Void)?
     var onRestoreCompleted: (([SKPaymentTransaction]) -> Void)?
     var onRestoreFailed: ((Error?) -> Void)?
+    
+    public init(onFetchCompleted: (([SKProduct]) -> Void)? = nil, onProductsNotFound: (([String]?) -> Void)? = nil, onPurchaseSucceeded: ((SKProduct) -> Void)? = nil, onPurchaseFailed: ((SKProduct, Error?) -> Void)? = nil, onRestoreCompleted: (([SKPaymentTransaction]) -> Void)? = nil, onRestoreFailed: ( (Error?) -> Void)? = nil) {
+        self.onFetchCompleted = onFetchCompleted
+        self.onProductsNotFound = onProductsNotFound
+        self.onPurchaseSucceeded = onPurchaseSucceeded
+        self.onPurchaseFailed = onPurchaseFailed
+        self.onRestoreCompleted = onRestoreCompleted
+        self.onRestoreFailed = onRestoreFailed
+    }
 }
 
 public class InAppPurchaseWrapper: NSObject, SKProductsRequestDelegate, SKPaymentTransactionObserver {
