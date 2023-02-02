@@ -15,7 +15,7 @@ class InAppPurchasesService: ObservableObject {
     @Published var products: [SKProduct] = []
     
     init(productIdentifiers: Set<String>) {
-        let callbacks = InAppPurchaseWrapper.InAppPurchasesCallbacks(onFetchCompleted: { [weak self] products in
+        let callbacks = InAppPurchasesCallbacks(onFetchCompleted: { [weak self] products in
             // handle fetching completed
             for product in products {
                 print("product: \(product.localizedTitle) - \(product.price)")
