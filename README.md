@@ -13,9 +13,12 @@
 
 ### Swift Package Manager
 
-- There are currently issues with the package, but the code works.
+You can install `InAppPurchaseiOS` using the [Swift Package Manager](https://swift.org/package-manager/).
 
-- Simply copy and paste the contents of the InAppPurchaseiOS file in Sources
+1. In Xcode, open your project and navigate to File > Swift Packages > Add Package Dependency.
+2. Enter the repository URL `https://github.com/vGebs/InAppPurchasesWrapperiOS.git` and click Next.
+3. Select the version you want to install, or leave the default version and click Next.
+4. In the "Add to Target" section, select the target(s) you want to use `InAppPurchaseiOS` in and click Finish.
 
 ## Usage
 
